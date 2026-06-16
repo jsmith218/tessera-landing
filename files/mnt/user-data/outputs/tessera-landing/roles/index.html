@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role Guides — Tessera</title>
+  <meta name="description" content="Find your role guide for Tessera. Select your role to see what you do, which pages you use, and what to do first when you arrive.">
+  <meta name="theme-color" content="#1C2421">
+  <link rel="icon" href="/assets/logo/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="Tessera home">
+      <img src="/assets/logo/icon.svg" alt="Tessera icon" width="28" height="28">
+      <span class="nav-wordmark">TESSER<span>A</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/#install">Install</a>
+      <a href="/roles/" aria-current="page" style="color: var(--text-primary);">Roles</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://app.tesseramissions.org" class="btn btn-primary" target="_blank" rel="noopener">Open App →</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" id="navDrawer">
+    <a href="/#install" onclick="closeDrawer()">Install</a>
+    <a href="/roles/" onclick="closeDrawer()">Role guides</a>
+    <a href="/#faq" onclick="closeDrawer()">FAQ</a>
+    <a href="https://app.tesseramissions.org" target="_blank" rel="noopener" style="color: var(--amber);">Open app →</a>
+  </div>
+
+  <main style="padding-top: 60px;">
+
+    <section class="section" aria-labelledby="roles-page-heading">
+      <div class="container">
+
+        <a href="/" class="role-hero-back" style="display: inline-flex; align-items: center; gap: 6px; margin-bottom: var(--gap-md); font-size: 13px; color: var(--text-tertiary);">
+          ← Back to home
+        </a>
+
+        <p class="section-label">Role guides</p>
+        <h1 class="section-title" id="roles-page-heading">Select your role</h1>
+        <p class="section-body">
+          Each guide covers what your role does, which pages you'll use in the app, and exactly what to do when you arrive on event day. If you're not sure what your role is, ask your group leader or an event coordinator.
+        </p>
+
+        <div class="roles-grid">
+
+          <a href="/roles/group-leader.html" class="role-card fade-in" data-role="group-leader">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h2>Group Leader</h2>
+            <p>Leads a team of volunteers at a worksite. Coordinates with the Site Coach and requests materials as the project progresses.</p>
+          </a>
+
+          <a href="/roles/site-coach.html" class="role-card fade-in" data-role="site-coach">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h2>Site Coach</h2>
+            <p>Oversees project quality and scope. Supports group leaders, logs project progress, and connects sites to event leadership.</p>
+          </a>
+
+          <a href="/roles/material-runner.html" class="role-card fade-in" data-role="material-runner">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h2>Material Runner</h2>
+            <p>Delivers supplies and tools to worksites. Fulfills material requests, coordinates with the warehouse, and logs deliveries.</p>
+          </a>
+
+          <a href="/roles/event-coordinator.html" class="role-card fade-in" data-role="event-coordinator">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h2>Event Coordinator</h2>
+            <p>Oversees the entire event. Monitors all sites, manages logistics, handles escalations, and keeps everything moving.</p>
+          </a>
+
+          <a href="/roles/hotshot.html" class="role-card fade-in" data-role="hotshot">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h2>Hotshot</h2>
+            <p>A skilled float team member dispatched to worksites that need extra help. Handles specialized tasks or urgent project needs.</p>
+          </a>
+
+          <a href="/roles/support.html" class="role-card fade-in" data-role="support">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h2>Support</h2>
+            <p>Handles backend logistics — shopping, warehouse, check-in, food, and other coordination that keeps the event running.</p>
+          </a>
+
+        </div>
+
+        <p class="role-not-sure" style="margin-top: var(--gap-lg);">
+          Not sure which role you have? <a href="/#faq">Check the FAQ</a> or ask your group leader or event coordinator.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="/" class="footer-logo">
+          <img src="/assets/logo/icon.svg" alt="" width="24" height="24" aria-hidden="true">
+          <span class="footer-wordmark">TESSER<span>A</span></span>
+        </a>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="/#install">Install</a>
+          <a href="/roles/">Role guides</a>
+          <a href="/#faq">FAQ</a>
+          <a href="https://app.tesseramissions.org" target="_blank" rel="noopener">Open app</a>
+        </nav>
+        <p class="footer-copy">Tessera Missions · tesseramissions.org</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const isOpen = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !drawer.contains(e.target)) closeDrawer();
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

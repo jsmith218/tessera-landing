@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tessera — Many pieces. One mission.</title>
+  <meta name="description" content="Tessera coordinates volunteers, groups, projects, and materials into one successful mission effort. Install the app, find your role, and get to work.">
+  <meta name="theme-color" content="#1C2421">
+
+  <!-- Favicons (update paths once you have favicon files) -->
+  <link rel="icon" href="/assets/logo/icon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="Tessera home">
+      <img src="/assets/logo/icon.svg" alt="Tessera icon" width="28" height="28">
+      <span class="nav-wordmark">TESSER<span>A</span></span>
+    </a>
+
+    <div class="nav-links" role="list">
+      <a href="#install" role="listitem">Install</a>
+      <a href="/roles/" role="listitem">Roles</a>
+      <a href="#faq" role="listitem">FAQ</a>
+    </div>
+
+    <div class="nav-cta">
+      <a href="https://app.tesseramissions.org" class="btn btn-primary" target="_blank" rel="noopener">
+        Open App →
+      </a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="navDrawer" role="dialog" aria-label="Navigation menu">
+    <a href="#install" onclick="closeDrawer()">Install</a>
+    <a href="/roles/" onclick="closeDrawer()">Role guides</a>
+    <a href="#faq" onclick="closeDrawer()">FAQ</a>
+    <a href="https://app.tesseramissions.org" target="_blank" rel="noopener" style="color: var(--amber);">Open app →</a>
+  </div>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+
+      <!-- Tile mosaic background texture -->
+      <div class="hero-tiles" aria-hidden="true">
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- Repeating tile pattern across the full background -->
+          <defs>
+            <pattern id="tile-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+              <rect x="8"  y="8"  width="44" height="44" rx="10" fill="#E9A23B"/>
+              <rect x="68" y="8"  width="44" height="44" rx="10" fill="#2E6E62"/>
+              <rect x="8"  y="68" width="44" height="44" rx="10" fill="#C4502F"/>
+              <rect x="68" y="68" width="44" height="44" rx="10" fill="#4E6B7A" transform="rotate(11 90 90)"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#tile-pattern)"/>
+        </svg>
+      </div>
+
+      <div class="hero-lockup fade-in visible">
+        <img
+          src="/assets/logo/icon.svg"
+          alt="Tessera tile-house icon"
+          class="hero-icon"
+          width="80"
+          height="80"
+        >
+
+        <div>
+          <h1 class="hero-title" id="hero-title">TESSER<span>A</span></h1>
+          <p class="hero-tagline">Many pieces. One mission.</p>
+        </div>
+
+        <p class="hero-description">
+          Tessera coordinates volunteers, groups, projects, and materials
+          into one successful service event.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://app.tesseramissions.org" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            Open the App →
+          </a>
+          <a href="#install" class="btn btn-outline btn-lg">
+            Install guide
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <svg viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 4v12M4 12l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Scroll
+      </div>
+    </section>
+
+    <!-- ============ QUICK START ============ -->
+    <section class="quickstart" aria-labelledby="quickstart-heading">
+      <div class="container">
+        <div class="quickstart-steps">
+          <div class="quickstart-step fade-in">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h3>Install the app</h3>
+              <p>Add Tessera to your phone's home screen — no app store needed.</p>
+            </div>
+          </div>
+          <div class="quickstart-step fade-in">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h3>Find your role</h3>
+              <p>Read your role guide so you know what to do when you arrive.</p>
+            </div>
+          </div>
+          <div class="quickstart-step fade-in">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h3>Get to work</h3>
+              <p>Open the app on event day, check in, and follow the workflow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSTALL ============ -->
+    <section class="section" id="install" aria-labelledby="install-heading">
+      <div class="container">
+        <p class="section-label">Install</p>
+        <h2 class="section-title" id="install-heading">Add Tessera to your phone</h2>
+        <p class="section-body">
+          Tessera is a Progressive Web App — no app store required. Follow the steps for your phone to add it to your home screen like any other app.
+        </p>
+
+        <div class="install-cards">
+
+          <!-- iOS card -->
+          <div class="install-card fade-in">
+            <div class="install-card-header">
+              <div class="install-card-icon" aria-hidden="true">🍎</div>
+              <div>
+                <h3>iPhone &amp; iPad</h3>
+                <p>Safari browser required</p>
+              </div>
+            </div>
+            <ol class="install-steps" aria-label="iPhone install steps">
+              <li class="install-step">
+                <div class="install-step-num" aria-hidden="true">1</div>
+                <p>Open <strong>Safari</strong> and go to <strong>app.tesseramissions.org</strong></p>
+              </li>
+              <li class="install-step">
+                <div class="install-step-num" aria-hidden="true">2</div>
+                <p>Tap the <strong>Share button</strong> at the bottom of the screen (the box with an arrow)</p>
+              </li>
+              <li class="install-step">
+                <div class="install-step-num" aria-hidden="true">3</div>
+                <p>Scroll down and tap <strong>"Add to Home Screen"</strong></p>
+              </li>
+              <li class="install-step">
+                <div class="install-step-num" aria-hidden="true">4</div>
+                <p>Tap <strong>"Add"</strong> in the top right. Tessera will appear on your home screen.</p>
+              </li>
+            </ol>
+            <div class="install-screenshot" aria-label="Screenshot placeholder — iPhone install steps">
+              Screenshot coming soon
+            </div>
+          </div>
+
+          <!-- Android card -->
+          <div class="install-card fade-in">
+            <div class="install-card-header">
+              <div class="install-card-icon" aria-hidden="true">🤖</div>
+              <div>
+                <h3>Android</h3>
+                <p>Chrome browser required</p>
+              </div>
+            </div>
+            <ol class="install-steps" aria-label="Android install steps">
+              <li class="install-step">
+                <div class="install-step-num" aria-hidden="true">1</div>
+                <p>Open <strong>Chrome</strong> and go to <strong>app.tesseramissions.org</strong></p>
+              </li>
+              <li class="install-step">
+                <div class="install-step-num" aria-hidden="true">2</div>
+                <p>Tap the <strong>three dots (⋮)</strong> in the top-right corner</p>
+              </li>
+              <li class="install-step">
+                <div class="install-step-num" aria-hidden="true">3</div>
+                <p>Tap <strong>"Add to Home Screen"</strong> or <strong>"Install App"</strong></p>
+              </li>
+              <li class="install-step">
+                <div class="install-step-num" aria-hidden="true">4</div>
+                <p>Tap <strong>"Add"</strong> to confirm. Tessera will appear on your home screen.</p>
+              </li>
+            </ol>
+            <div class="install-screenshot" aria-label="Screenshot placeholder — Android install steps">
+              Screenshot coming soon
+            </div>
+          </div>
+
+        </div><!-- /install-cards -->
+
+        <!-- Push notification reminder -->
+        <div class="notif-box fade-in" role="note" aria-label="Notification setup">
+          <h3>⚡ Enable push notifications</h3>
+          <p>
+            When prompted, allow Tessera to send notifications. This is how your group leader, site coach,
+            and event coordinators will reach you during the event. If you missed the prompt,
+            go to your phone's Settings → Notifications → Tessera and turn them on.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ============ ROLE GUIDES ============ -->
+    <section class="section" id="roles" aria-labelledby="roles-heading">
+      <div class="container">
+        <p class="section-label">Role guides</p>
+        <h2 class="section-title" id="roles-heading">Find your role</h2>
+        <p class="section-body">
+          Every person at a Tessera event has a role. Select yours to see what you'll do, which pages you'll use, and what to do first when you arrive.
+        </p>
+
+        <div class="roles-grid">
+
+          <a href="/roles/group-leader.html" class="role-card fade-in" data-role="group-leader">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3>Group Leader</h3>
+            <p>Leads a team of volunteers at a worksite. Coordinates with the Site Coach and requests materials as the project progresses.</p>
+          </a>
+
+          <a href="/roles/site-coach.html" class="role-card fade-in" data-role="site-coach">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3>Site Coach</h3>
+            <p>Oversees project quality and scope. Supports group leaders, logs project progress, and connects sites to event leadership.</p>
+          </a>
+
+          <a href="/roles/material-runner.html" class="role-card fade-in" data-role="material-runner">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3>Material Runner</h3>
+            <p>Delivers supplies and tools to worksites. Fulfills material requests, coordinates with the warehouse, and logs deliveries.</p>
+          </a>
+
+          <a href="/roles/event-coordinator.html" class="role-card fade-in" data-role="event-coordinator">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3>Event Coordinator</h3>
+            <p>Oversees the entire event. Monitors all sites, manages logistics, handles escalations, and keeps everything moving.</p>
+          </a>
+
+          <a href="/roles/hotshot.html" class="role-card fade-in" data-role="hotshot">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3>Hotshot</h3>
+            <p>A skilled float team member dispatched to worksites that need extra help. Handles specialized tasks or urgent project needs.</p>
+          </a>
+
+          <a href="/roles/support.html" class="role-card fade-in" data-role="support">
+            <div class="role-card-top">
+              <div class="role-tile" aria-hidden="true"></div>
+              <span class="role-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3>Support</h3>
+            <p>Handles backend logistics — shopping, warehouse, check-in, food, and other coordination that keeps the event running.</p>
+          </a>
+
+        </div><!-- /roles-grid -->
+
+        <p class="role-not-sure">
+          Not sure what role you have? <a href="#faq">Check the FAQ</a> or ask your group leader.
+        </p>
+
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title" id="faq-heading">Common questions</h2>
+        <p class="section-body">
+          Answers to the most frequent questions volunteers have before and during an event.
+        </p>
+
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              How do I install the app?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              See the <a href="#install">install guide above</a> for step-by-step instructions for iPhone and Android.
+              On iPhone, you must use Safari (not Chrome). On Android, use Chrome. The app does not require an app store download.
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Why am I not receiving notifications?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Notifications may be blocked if you tapped "Don't Allow" when first prompted. To fix it:
+              on iPhone, go to Settings → Notifications → Tessera and turn on Allow Notifications.
+              On Android, go to Settings → Apps → Tessera → Notifications. Make sure your phone is not on Do Not Disturb during the event.
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              What if I forget my PIN?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              On the login screen, tap "Forgot PIN?" and follow the reset steps.
+              If you're at the event and can't get in, find your group leader or an event coordinator — they can look up your access.
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              How do I upload photos?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Inside the app, navigate to your worksite's Photos tab. Tap the camera icon to take a photo directly,
+              or the gallery icon to upload from your camera roll. Label the photo as "Before" or "After" when prompted.
+              Photos sync automatically when you have a signal.
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              How do I request materials or tools?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Go to your project page and tap "Request Materials." Describe what you need and how many —
+              a Material Runner will see the request and deliver to your site. For urgent needs, contact your Site Coach directly.
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              The app isn't loading — what do I do?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              First, check your phone's signal or Wi-Fi connection. If you have a connection and the app still won't load,
+              close it completely and reopen it. If that doesn't help, try uninstalling and reinstalling from
+              <a href="https://app.tesseramissions.org" target="_blank" rel="noopener">app.tesseramissions.org</a>.
+              Find a coordinator if the problem continues on event day.
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              What role do I have?
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Your role is assigned by event leadership before the event. You may have been told in an email,
+              at a pre-event meeting, or by your group leader. If you're unsure, ask your group leader or an event coordinator.
+              Most volunteers will be in a group — if that's you, read the <a href="/roles/group-leader.html">Group Leader guide</a> or just follow your group leader's instructions.
+            </div>
+          </div>
+
+        </div><!-- /faq-list -->
+
+      </div>
+    </section>
+
+    <!-- ============ OPEN APP BANNER ============ -->
+    <section class="app-banner" aria-label="Open the app">
+      <div class="container">
+        <h2>Ready to go?</h2>
+        <p>Open Tessera on your phone and get started.</p>
+        <a href="https://app.tesseramissions.org" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          Open Tessera →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="/" class="footer-logo" aria-label="Tessera home">
+          <img src="/assets/logo/icon.svg" alt="" width="24" height="24" aria-hidden="true">
+          <span class="footer-wordmark">TESSER<span>A</span></span>
+        </a>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="#install">Install</a>
+          <a href="/roles/">Role guides</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://app.tesseramissions.org" target="_blank" rel="noopener">Open app</a>
+        </nav>
+        <p class="footer-copy">Tessera Missions · tesseramissions.org</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Nav hamburger ----
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('navDrawer');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    // Close drawer when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !drawer.contains(e.target)) {
+        closeDrawer();
+      }
+    });
+
+    // ---- FAQ accordion ----
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+      });
+    });
+
+    // ---- Scroll-triggered fade-ins ----
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ---- Smooth scroll for nav links ----
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          closeDrawer();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
