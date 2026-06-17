@@ -220,29 +220,57 @@
             </a>
           </div>
 
-          <!-- Phone mockup (desktop only) -->
+          <!-- Phone mockup + feature guide (desktop only) -->
           <div class="demo-phone" aria-hidden="true">
-            <div class="demo-phone-col">
-              <div class="phone-wrap">
-                <div class="phone-frame">
-                  <div class="phone-btn-vol-up"></div>
-                  <div class="phone-btn-vol-down"></div>
-                  <div class="phone-btn-power"></div>
-                  <div class="phone-screen">
-                    <iframe
-                      id="demo-iframe"
-                      src="https://demo.tesseramissions.org"
-                      title="Tessera live demo"
-                      loading="lazy"
-                      allow="clipboard-write"
-                    ></iframe>
+            <div class="demo-feature-zone" id="demo-feature-zone">
+
+              <!-- Phone column -->
+              <div class="demo-phone-col">
+                <div class="phone-wrap" id="phone-wrap">
+                  <div class="phone-frame">
+                    <div class="phone-btn-vol-up"></div>
+                    <div class="phone-btn-vol-down"></div>
+                    <div class="phone-btn-power"></div>
+                    <div class="phone-screen">
+                      <iframe
+                        id="demo-iframe"
+                        src="https://demo.tesseramissions.org"
+                        title="Tessera live demo"
+                        loading="lazy"
+                        allow="clipboard-write"
+                      ></iframe>
+                    </div>
+                    <div class="phone-home-bar"></div>
                   </div>
-                  <div class="phone-home-bar"></div>
+                  <!-- Hotspot dot overlaid on the phone -->
+                  <div class="feature-hotspot" id="feature-hotspot" style="display:none" aria-hidden="true">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-dot"></div>
+                  </div>
                 </div>
+                <button class="demo-reset-btn" onclick="var f=document.getElementById('demo-iframe');f.src='https://demo.tesseramissions.org/api/demo-signout'">
+                  ↺ Reset demo
+                </button>
               </div>
-              <button class="demo-reset-btn" onclick="var f=document.getElementById('demo-iframe');f.src='https://demo.tesseramissions.org/api/demo-signout'">
-                ↺ Reset demo
-              </button>
+
+              <!-- Feature guide sidebar -->
+              <div class="demo-feature-menu" id="demo-feature-menu">
+                <p class="feature-menu-label">Features</p>
+                <button class="feature-btn" data-feature="materials">Material Requests</button>
+                <button class="feature-btn" data-feature="shopping">Shopping &amp; Manifest</button>
+                <button class="feature-btn" data-feature="hotshot">Hotshot Runs</button>
+                <button class="feature-btn" data-feature="attention">Site Attention</button>
+                <button class="feature-btn" data-feature="photos">Photo Capture</button>
+                <button class="feature-btn" data-feature="checkin">Volunteer Check-In</button>
+              </div>
+
+              <!-- Callout dialog (positioned by JS) -->
+              <div class="feature-callout" id="feature-callout" style="display:none" aria-hidden="true">
+                <div class="callout-arrow" id="callout-arrow"></div>
+                <h4 class="callout-title" id="callout-title"></h4>
+                <p class="callout-desc" id="callout-desc"></p>
+              </div>
+
             </div>
           </div>
 
@@ -634,6 +662,113 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+
+    // ---- Feature guide ----
+    // x/y are % offsets from top-left of the 310×671 phone-wrap
+    const FEATURES = {
+      materials: {
+        label: 'Material Requests',
+        desc: 'Workers submit material needs from the job site. Requests queue instantly for the runner.',
+        x: 62, y: 52
+      },
+      shopping: {
+        label: 'Shopping & Manifest',
+        desc: 'The shopping list auto-builds from requests. Runners claim items; the manifest tracks delivery.',
+        x: 55, y: 44
+      },
+      hotshot: {
+        label: 'Hotshot Runs',
+        desc: 'Urgent supply runs are flagged with one tap and routed to the nearest available runner.',
+        x: 70, y: 68
+      },
+      attention: {
+        label: 'Site Attention',
+        desc: 'Coaches flag issues that need coordinator attention without interrupting the work crew.',
+        x: 50, y: 30
+      },
+      photos: {
+        label: 'Photo Capture',
+        desc: 'Field teams document progress and scope directly from the project screen — no separate app.',
+        x: 58, y: 78
+      },
+      checkin: {
+        label: 'Volunteer Check-In',
+        desc: 'Group leaders check in their volunteers on arrival. Recognition photos are captured at the end.',
+        x: 45, y: 20
+      }
+    };
+
+    const hotspot = document.getElementById('feature-hotspot');
+    const callout = document.getElementById('feature-callout');
+    const calloutTitle = document.getElementById('callout-title');
+    const calloutDesc = document.getElementById('callout-desc');
+    const phoneWrap = document.getElementById('phone-wrap');
+    let activeFeature = null;
+
+    function showFeature(id) {
+      const f = FEATURES[id];
+      if (!f) return;
+
+      // Position hotspot
+      hotspot.style.left = f.x + '%';
+      hotspot.style.top = f.y + '%';
+      hotspot.style.display = 'block';
+      hotspot.removeAttribute('aria-hidden');
+
+      // Position callout to the right of phone-wrap
+      // phone-wrap is 310px wide, gap is 16px → callout left edge at 326px
+      const phoneRect = phoneWrap.getBoundingClientRect();
+      const zoneRect = document.getElementById('demo-feature-zone').getBoundingClientRect();
+      const hotspotTopPx = (f.y / 100) * phoneRect.height;
+      const hotspotAbsTop = phoneRect.top - zoneRect.top + hotspotTopPx;
+
+      callout.style.left = (phoneRect.left - zoneRect.left + phoneRect.width + 16) + 'px';
+      callout.style.top = Math.max(0, hotspotAbsTop - 40) + 'px';
+      callout.style.display = 'block';
+      callout.removeAttribute('aria-hidden');
+
+      // Arrow vertical position relative to callout top
+      const arrow = document.getElementById('callout-arrow');
+      const arrowTop = Math.min(Math.max(hotspotAbsTop - parseFloat(callout.style.top), 12), 80);
+      arrow.style.top = arrowTop + 'px';
+
+      calloutTitle.textContent = f.label;
+      calloutDesc.textContent = f.desc;
+
+      // Mark button active
+      document.querySelectorAll('.feature-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.feature === id);
+      });
+
+      activeFeature = id;
+    }
+
+    function hideFeature() {
+      hotspot.style.display = 'none';
+      hotspot.setAttribute('aria-hidden', 'true');
+      callout.style.display = 'none';
+      callout.setAttribute('aria-hidden', 'true');
+      document.querySelectorAll('.feature-btn').forEach(b => b.classList.remove('active'));
+      activeFeature = null;
+    }
+
+    document.querySelectorAll('.feature-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.dataset.feature;
+        if (activeFeature === id) {
+          hideFeature();
+        } else {
+          showFeature(id);
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (activeFeature && !callout.contains(e.target) && !document.getElementById('demo-feature-menu')?.contains(e.target)) {
+        hideFeature();
+      }
     });
   </script>
 
