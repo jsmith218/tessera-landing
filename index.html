@@ -23,6 +23,7 @@
 
     <div class="nav-links" role="list">
       <a href="#install" role="listitem">Install</a>
+      <a href="#demo" role="listitem">Demo</a>
       <a href="/roles/" role="listitem">Roles</a>
       <a href="#faq" role="listitem">FAQ</a>
       <a href="#about" role="listitem">About</a>
@@ -43,6 +44,7 @@
   <!-- Mobile drawer -->
   <div class="nav-drawer" id="navDrawer" role="dialog" aria-label="Navigation menu">
     <a href="#install" onclick="closeDrawer()">Install</a>
+    <a href="#demo" onclick="closeDrawer()">Demo</a>
     <a href="/roles/" onclick="closeDrawer()">Role guides</a>
     <a href="#faq" onclick="closeDrawer()">FAQ</a>
     <a href="#about" onclick="closeDrawer()">About</a>
@@ -177,6 +179,72 @@
               <p>Open the app on event day, check in, and follow the workflow.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DEMO ============ -->
+    <section class="section demo-section" id="demo" aria-labelledby="demo-heading">
+      <div class="container">
+        <div class="demo-layout">
+
+          <!-- Text + credentials -->
+          <div class="demo-text fade-in">
+            <p class="section-label">Live demo</p>
+            <h2 class="section-title" id="demo-heading">Try it <span>yourself</span></h2>
+            <p class="section-body">
+              This is the real app pointed at a demo workspace. Sign in as any
+              role and explore the day-of execution workflow — materials,
+              hotshot requests, trash pickup, and more. Nothing touches production.
+            </p>
+
+            <div class="demo-creds">
+              <p class="demo-creds-heading">Demo login passwords</p>
+              <div class="demo-cred-row">
+                <span class="demo-cred-role">Admin</span>
+                <code class="demo-cred-pass">admin0001</code>
+              </div>
+              <div class="demo-cred-row">
+                <span class="demo-cred-role">Site Coach</span>
+                <code class="demo-cred-pass">coach0002</code>
+              </div>
+              <div class="demo-cred-row">
+                <span class="demo-cred-role">Group Leader</span>
+                <code class="demo-cred-pass">leader0003</code>
+              </div>
+              <div class="demo-cred-row">
+                <span class="demo-cred-role">Material Runner</span>
+                <code class="demo-cred-pass">runner0004</code>
+              </div>
+              <p class="demo-creds-note">Mutations go to the demo database, not production.</p>
+            </div>
+
+            <a href="https://demo.tesseramissions.org" class="btn btn-outline demo-open-link" target="_blank" rel="noopener">
+              Open full screen →
+            </a>
+          </div>
+
+          <!-- Phone mockup (desktop only) -->
+          <div class="demo-phone" aria-hidden="true">
+            <div class="phone-wrap">
+              <div class="phone-frame">
+                <div class="phone-btn-vol-up"></div>
+                <div class="phone-btn-vol-down"></div>
+                <div class="phone-btn-power"></div>
+                <div class="phone-island"></div>
+                <div class="phone-screen">
+                  <iframe
+                    src="https://demo.tesseramissions.org"
+                    title="Tessera live demo"
+                    loading="lazy"
+                    allow="clipboard-write"
+                  ></iframe>
+                </div>
+                <div class="phone-home-bar"></div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

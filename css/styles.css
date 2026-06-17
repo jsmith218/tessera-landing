@@ -1447,7 +1447,7 @@ ul { list-style: none; }
 .tm-muted { color: var(--text-tertiary); }
 
 .tm-grid { display: grid; grid-template-columns: 1fr; gap: var(--gap-xl); align-items: start; }
-@media (min-width: 960px) {
+@media (min-width: 900px) {
   .tm-grid { grid-template-columns: 520px 1fr; gap: var(--gap-lg); }
   .tm-phone { position: sticky; top: 84px; }
 }
@@ -1608,4 +1608,177 @@ ul { list-style: none; }
   border-radius: var(--radius-xl);
   background: var(--ink);
   box-shadow: 0 30px 80px rgba(0,0,0,0.45), 0 0 0 6px rgba(255,255,255,0.02);
+}
+
+/* ============================================================
+   DEMO SECTION — phone mockup
+   ============================================================ */
+
+.demo-section {
+  overflow: hidden;
+}
+
+.demo-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-xl);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .demo-layout {
+    grid-template-columns: 1fr 380px;
+  }
+}
+
+/* Credentials card */
+.demo-creds {
+  margin-top: var(--gap-md);
+  padding: var(--gap-md);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.demo-creds-heading {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: var(--gap-sm);
+}
+
+.demo-cred-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-cred-row:last-of-type {
+  border-bottom: none;
+}
+
+.demo-cred-role {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.demo-cred-pass {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--amber);
+  background: rgba(233, 162, 59, 0.08);
+  border: 1px solid rgba(233, 162, 59, 0.18);
+  padding: 3px 9px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  user-select: all;
+  cursor: text;
+}
+
+.demo-creds-note {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: var(--gap-sm);
+  line-height: 1.5;
+}
+
+.demo-open-link {
+  margin-top: var(--gap-md);
+}
+
+/* Phone mockup — hidden on mobile, shown on desktop */
+.demo-phone {
+  display: none;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .demo-phone {
+    display: flex;
+  }
+}
+
+/* Outer wrapper — sets the visual footprint */
+.phone-wrap {
+  position: relative;
+  width: 360px;
+  height: 780px;
+  flex-shrink: 0;
+}
+
+/* Phone body */
+.phone-frame {
+  position: absolute;
+  inset: 0;
+  background: #161D1A;
+  border-radius: 46px;
+  border: 1.5px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.7),
+    0 48px 96px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+}
+
+/* Side buttons (decorative) */
+.phone-btn-vol-up,
+.phone-btn-vol-down,
+.phone-btn-power {
+  position: absolute;
+  background: #111816;
+  border-radius: 2px;
+}
+.phone-btn-vol-up   { left: -3px; top: 108px; width: 3px; height: 34px; }
+.phone-btn-vol-down { left: -3px; top: 154px; width: 3px; height: 34px; }
+.phone-btn-power    { right: -3px; top: 134px; width: 3px; height: 60px; }
+
+/* Dynamic island */
+.phone-island {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 118px;
+  height: 34px;
+  background: #0C1210;
+  border-radius: 22px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Screen + iframe */
+.phone-screen {
+  position: absolute;
+  inset: 0;
+  border-radius: 44px;
+  overflow: hidden;
+  background: #1C2421;
+}
+
+.phone-screen iframe {
+  width: 390px;
+  height: 844px;
+  border: none;
+  /* scale 390px → 360px */
+  transform: scale(0.9231);
+  transform-origin: top left;
+  display: block;
+}
+
+/* Home indicator */
+.phone-home-bar {
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 128px;
+  height: 4px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 3px;
+  z-index: 10;
+  pointer-events: none;
 }

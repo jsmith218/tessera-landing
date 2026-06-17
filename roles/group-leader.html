@@ -39,7 +39,7 @@
   <main class="role-page">
 
     <!-- ROLE HERO -->
-    <div class="role-hero" style="background: var(--ink-light); border-bottom: 1px solid var(--border);">
+    <div class="role-hero slim" style="background: var(--ink-light); border-bottom: 1px solid var(--border);">
       <div class="container">
         <a href="/roles/" class="role-hero-back">
           ← All roles
@@ -56,175 +56,35 @@
 
     <div class="container">
 
-      <!-- FIRST ACTION -->
-      <div class="first-action fade-in" role="note" aria-label="First action on event day">
-        <p class="first-action-label">When you arrive on event day</p>
-        <h2>Your first action</h2>
-        <p>
-          Open Tessera → tap your worksite card on the Dashboard → tap <strong>Check In</strong>.
-          This confirms your group is on-site and activates your project. Your volunteers will gather around you — walk them through what you see on the project page before anyone picks up a tool.
-        </p>
-      </div>
-
-      <!-- ROLE CONTENT -->
-      <div class="role-content">
-
-        <!-- What this role does -->
-        <div class="role-section fade-in">
-          <h2>What this role does</h2>
-          <div class="task-list" role="list">
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span>Leads a group of 10–15 volunteers at a homeowner's worksite</span>
-            </div>
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span>Coordinates work with the Site Coach assigned to your site</span>
-            </div>
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span>Requests materials and tools when the project needs them</span>
-            </div>
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span>Logs project progress and marks tasks complete as work is finished</span>
-            </div>
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span>Takes before and after photos of completed work</span>
-            </div>
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span>Keeps your team informed and motivated throughout the day</span>
-            </div>
-          </div>
+      <!-- INTERACTIVE DEMO -->
+      <section class="tm-demo fade-in" aria-label="Interactive Group Leader screen">
+        <div class="tm-demo-head">
+          <p class="section-label">Try it</p>
+          <h2>The Project screen — tap around</h2>
+          <p class="tm-demo-sub">A live copy of what you'll see on event day. Tap the cards, expand the sections — explore. <span class="tm-muted">(Dummy data — this isn't wired to the real app.)</span></p>
         </div>
 
-        <!-- Pages used -->
-        <div class="role-section fade-in">
-          <h2>Pages you'll use in the app</h2>
-          <div class="pages-used" role="list" aria-label="App pages for Group Leader">
-            <span class="page-chip" role="listitem">Dashboard</span>
-            <span class="page-chip" role="listitem">My Worksite</span>
-            <span class="page-chip" role="listitem">Project</span>
-            <span class="page-chip" role="listitem">Materials</span>
-            <span class="page-chip" role="listitem">Photos</span>
-            <span class="page-chip" role="listitem">Map</span>
-            <span class="page-chip" role="listitem">Notifications</span>
+        <div class="tm-grid">
+
+          <!-- PHONE — exact app copy, isolated in an iframe -->
+          <div class="tm-phone">
+            <iframe class="tm-frame" src="https://app.tesseramissions.org/sandbox/project-execution" title="Group Leader — Project screen (interactive demo)" loading="lazy"></iframe>
           </div>
-        </div>
 
-        <!-- Workflow -->
-        <div class="role-section fade-in">
-          <h2>Basic workflow</h2>
-          <div class="workflow-steps">
-
-            <div class="workflow-step">
-              <div class="workflow-step-left">
-                <div class="workflow-num" aria-hidden="true">1</div>
-                <div class="workflow-line" aria-hidden="true"></div>
-              </div>
-              <div class="workflow-step-content">
-                <h3>Check in at your worksite</h3>
-                <p>Open the app, find your worksite on the Dashboard, and tap Check In. This lets event leadership know your team is on-site and ready.</p>
-              </div>
-            </div>
-
-            <div class="workflow-step">
-              <div class="workflow-step-left">
-                <div class="workflow-num" aria-hidden="true">2</div>
-                <div class="workflow-line" aria-hidden="true"></div>
-              </div>
-              <div class="workflow-step-content">
-                <h3>Review the project with your team</h3>
-                <p>Open the Project page and read through the scope of work with your volunteers. Introduce yourselves to the homeowner. Walk the site together before starting.</p>
-              </div>
-            </div>
-
-            <div class="workflow-step">
-              <div class="workflow-step-left">
-                <div class="workflow-num" aria-hidden="true">3</div>
-                <div class="workflow-line" aria-hidden="true"></div>
-              </div>
-              <div class="workflow-step-content">
-                <h3>Take before photos</h3>
-                <p>Before any work begins, take before photos of the areas your team will be working on. This is important for the homeowner's record and the event closeout report.</p>
-              </div>
-            </div>
-
-            <div class="workflow-step">
-              <div class="workflow-step-left">
-                <div class="workflow-num" aria-hidden="true">4</div>
-                <div class="workflow-line" aria-hidden="true"></div>
-              </div>
-              <div class="workflow-step-content">
-                <h3>Work the project and request materials as needed</h3>
-                <p>Lead your team through the tasks. When you need supplies, tap "Request Materials" on the project page. A Material Runner will see it and deliver to your site.</p>
-              </div>
-            </div>
-
-            <div class="workflow-step">
-              <div class="workflow-step-left">
-                <div class="workflow-num" aria-hidden="true">5</div>
-                <div class="workflow-line" aria-hidden="true"></div>
-              </div>
-              <div class="workflow-step-content">
-                <h3>Mark tasks complete</h3>
-                <p>As each task is finished, mark it complete in the Project page. Your Site Coach can see this progress and will come check on you when tasks are done.</p>
-              </div>
-            </div>
-
-            <div class="workflow-step">
-              <div class="workflow-step-left">
-                <div class="workflow-num" aria-hidden="true">6</div>
-                <div class="workflow-line" aria-hidden="true"></div>
-              </div>
-              <div class="workflow-step-content">
-                <h3>Take after photos and close out</h3>
-                <p>When work is complete, take after photos of everything your team did. Then have the homeowner review the work. Your Site Coach will complete the final sign-off.</p>
-              </div>
-            </div>
-
+          <!-- GUIDING CAPTIONS -->
+          <div class="tm-captions">
+            <p class="tm-cap-hint">Tap a card on the phone — or a feature below — to see what it does.</p>
+            <button class="tm-cap" data-trigger="modal:group" type="button"><span class="tm-cap-dot" data-accent="teal"></span><strong>Group</strong><span>Your full volunteer roster and headcount for the day.</span></button>
+            <button class="tm-cap" data-trigger="modal:hotshot" type="button"><span class="tm-cap-dot" data-accent="clay"></span><strong>Hotshot</strong><span>Call for ice, water, or an extra pair of hands — and track each request.</span></button>
+            <button class="tm-cap" data-trigger="modal:alert" type="button"><span class="tm-cap-dot" data-accent="amber"></span><strong>Alert</strong><span>Flag a safety, homeowner, schedule, or scope issue to your Site Coach.</span></button>
+            <button class="tm-cap" data-trigger="modal:resources" type="button"><span class="tm-cap-dot" data-accent="slate"></span><strong>Resources</strong><span>Open project guides and documents attached to your site.</span></button>
+            <button class="tm-cap" data-trigger="section:requests" type="button"><span class="tm-cap-dot" data-accent="amber"></span><strong>Requests</strong><span>Ask for materials or tools in plain words — a Material Runner delivers.</span></button>
+            <button class="tm-cap" data-trigger="section:toolbox" type="button"><span class="tm-cap-dot" data-accent="teal"></span><strong>Toolbox · Pick List</strong><span>Tools still to be pulled, packed, or picked up vs. what's on site.</span></button>
+            <button class="tm-cap" data-trigger="section:trash" type="button"><span class="tm-cap-dot" data-accent="slate"></span><strong>Trash Pickup</strong><span>Log debris with a photo and note, then track it until complete.</span></button>
           </div>
-        </div>
 
-        <!-- Common tasks -->
-        <div class="role-section fade-in">
-          <h2>Common tasks — how to</h2>
-          <div class="task-list" role="list">
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span><strong style="color: var(--text-primary);">Request materials:</strong> Go to your project page → tap "Request Materials" → describe what you need and the quantity → submit. A runner will be notified.</span>
-            </div>
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span><strong style="color: var(--text-primary);">Upload a photo:</strong> Go to the Photos tab on your worksite → tap the camera icon → take or choose a photo → label it Before or After.</span>
-            </div>
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span><strong style="color: var(--text-primary);">Mark a task complete:</strong> On the Project page → find the task → tap the checkbox or "Mark Complete" button.</span>
-            </div>
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span><strong style="color: var(--text-primary);">Contact your Site Coach:</strong> Tap Notifications or find them on the Map page. You can also send them a message through the app.</span>
-            </div>
-            <div class="task-item" role="listitem">
-              <div class="task-dot" aria-hidden="true"></div>
-              <span><strong style="color: var(--text-primary);">Find the worksite address:</strong> Tap the Map tab — your site is pinned. Tap the pin for the address and directions.</span>
-            </div>
-          </div>
         </div>
-
-        <!-- Screenshot placeholder -->
-        <div class="role-section fade-in">
-          <h2>App screenshots</h2>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-md);">
-            <div class="install-screenshot" style="height: 200px;">Dashboard view</div>
-            <div class="install-screenshot" style="height: 200px;">Project page</div>
-          </div>
-        </div>
-
-      </div><!-- /role-content -->
+      </section>
 
       <!-- BOTTOM CTA -->
       <div class="role-cta fade-in">
@@ -297,6 +157,26 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ---- Group Leader demo: guiding captions drive the iframe copy ----
+    (function () {
+      const frame = document.querySelector('.tm-frame');
+      if (!frame) return;
+      const post = (msg) => { try { frame.contentWindow.postMessage(msg, '*'); } catch (e) {} };
+      document.querySelectorAll('.tm-cap[data-trigger]').forEach(c => {
+        const [kind, name] = c.dataset.trigger.split(':');
+        // hover → highlight the matching card/section inside the demo
+        c.addEventListener('mouseenter', () => post({ tessera: 'hl', kind, name, on: true }));
+        c.addEventListener('mouseleave', () => post({ tessera: 'hl', on: false }));
+        // click → open / expand it
+        c.addEventListener('click', () => {
+          post({ tessera: 'go', kind, name });
+          frame.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          document.querySelectorAll('.tm-cap').forEach(x => x.classList.remove('active'));
+          c.classList.add('active');
+        });
+      });
+    })();
   </script>
 
 </body>
