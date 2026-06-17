@@ -222,22 +222,28 @@
 
           <!-- Phone mockup (desktop only) -->
           <div class="demo-phone" aria-hidden="true">
-            <div class="phone-wrap">
-              <div class="phone-frame">
-                <div class="phone-btn-vol-up"></div>
-                <div class="phone-btn-vol-down"></div>
-                <div class="phone-btn-power"></div>
-                <div class="phone-island"></div>
-                <div class="phone-screen">
-                  <iframe
-                    src="https://demo.tesseramissions.org"
-                    title="Tessera live demo"
-                    loading="lazy"
-                    allow="clipboard-write"
-                  ></iframe>
+            <div class="demo-phone-col">
+              <div class="phone-wrap">
+                <div class="phone-frame">
+                  <div class="phone-btn-vol-up"></div>
+                  <div class="phone-btn-vol-down"></div>
+                  <div class="phone-btn-power"></div>
+                  <div class="phone-island"></div>
+                  <div class="phone-screen">
+                    <iframe
+                      id="demo-iframe"
+                      src="https://demo.tesseramissions.org"
+                      title="Tessera live demo"
+                      loading="lazy"
+                      allow="clipboard-write"
+                    ></iframe>
+                  </div>
+                  <div class="phone-home-bar"></div>
                 </div>
-                <div class="phone-home-bar"></div>
               </div>
+              <button class="demo-reset-btn" onclick="var f=document.getElementById('demo-iframe');f.src='https://demo.tesseramissions.org/login'">
+                ↺ Reset demo
+              </button>
             </div>
           </div>
 
