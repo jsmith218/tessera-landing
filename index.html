@@ -665,44 +665,37 @@
     });
 
     // ---- Feature guide ----
-    // x/y are % offsets from top-left of the 310×671 phone-wrap
     const FEATURES = {
       materials: {
         label: 'Material Requests',
         desc: 'Workers submit material needs from the job site. Requests queue instantly for the runner.',
-        x: 62, y: 52
       },
       shopping: {
         label: 'Shopping & Manifest',
         desc: 'The shopping list auto-builds from requests. Runners claim items; the manifest tracks delivery.',
-        x: 55, y: 44
       },
       hotshot: {
         label: 'Hotshot Runs',
         desc: 'Urgent supply runs are flagged with one tap and routed to the nearest available runner.',
-        x: 70, y: 68
       },
       attention: {
         label: 'Site Attention',
         desc: 'Coaches flag issues that need coordinator attention without interrupting the work crew.',
-        x: 50, y: 30
       },
       photos: {
         label: 'Photo Capture',
         desc: 'Field teams document progress and scope directly from the project screen — no separate app.',
-        x: 58, y: 78
       },
       checkin: {
         label: 'Volunteer Check-In',
         desc: 'Group leaders check in their volunteers on arrival. Recognition photos are captured at the end.',
-        x: 45, y: 20
       }
     };
 
-    const hotspot = document.getElementById('feature-hotspot');
     const callout = document.getElementById('feature-callout');
     const calloutTitle = document.getElementById('callout-title');
     const calloutDesc = document.getElementById('callout-desc');
+    const calloutArrow = document.getElementById('callout-arrow');
     const phoneWrap = document.getElementById('phone-wrap');
     let activeFeature = null;
 
@@ -710,33 +703,30 @@
       const f = FEATURES[id];
       if (!f) return;
 
-      // Position hotspot
-      hotspot.style.left = f.x + '%';
-      hotspot.style.top = f.y + '%';
-      hotspot.style.display = 'block';
-      hotspot.removeAttribute('aria-hidden');
+      // Glow the phone frame
+      phoneWrap.classList.add('feature-active');
 
-      // Position callout to the right of phone-wrap
-      // phone-wrap is 310px wide, gap is 16px → callout left edge at 326px
+      // Position callout to the right of phone-wrap, vertically centered on phone
       const phoneRect = phoneWrap.getBoundingClientRect();
       const zoneRect = document.getElementById('demo-feature-zone').getBoundingClientRect();
-      const hotspotTopPx = (f.y / 100) * phoneRect.height;
-      const hotspotAbsTop = phoneRect.top - zoneRect.top + hotspotTopPx;
 
-      callout.style.left = (phoneRect.left - zoneRect.left + phoneRect.width + 16) + 'px';
-      callout.style.top = Math.max(0, hotspotAbsTop - 40) + 'px';
+      const calloutLeft = phoneRect.left - zoneRect.left + phoneRect.width + 16;
+      // Center callout vertically on phone mid-point
+      const phoneMidY = phoneRect.top - zoneRect.top + phoneRect.height / 2;
+      const calloutTop = Math.max(0, phoneMidY - 60);
+
+      callout.style.left = calloutLeft + 'px';
+      callout.style.top = calloutTop + 'px';
       callout.style.display = 'block';
       callout.removeAttribute('aria-hidden');
 
-      // Arrow vertical position relative to callout top
-      const arrow = document.getElementById('callout-arrow');
-      const arrowTop = Math.min(Math.max(hotspotAbsTop - parseFloat(callout.style.top), 12), 80);
-      arrow.style.top = arrowTop + 'px';
+      // Arrow tracks the phone mid-point relative to callout top
+      const arrowTop = Math.max(12, phoneMidY - calloutTop - 7);
+      calloutArrow.style.top = arrowTop + 'px';
 
       calloutTitle.textContent = f.label;
       calloutDesc.textContent = f.desc;
 
-      // Mark button active
       document.querySelectorAll('.feature-btn').forEach(b => {
         b.classList.toggle('active', b.dataset.feature === id);
       });
@@ -745,8 +735,7 @@
     }
 
     function hideFeature() {
-      hotspot.style.display = 'none';
-      hotspot.setAttribute('aria-hidden', 'true');
+      phoneWrap.classList.remove('feature-active');
       callout.style.display = 'none';
       callout.setAttribute('aria-hidden', 'true');
       document.querySelectorAll('.feature-btn').forEach(b => b.classList.remove('active'));

@@ -1722,6 +1722,17 @@ ul { list-style: none; }
     0 0 0 1px rgba(0,0,0,0.7),
     0 48px 96px rgba(0,0,0,0.55),
     inset 0 1px 0 rgba(255,255,255,0.07);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.phone-wrap.feature-active .phone-frame {
+  border-color: rgba(60,138,123,0.55);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.7),
+    0 48px 96px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.07),
+    0 0 0 3px rgba(60,138,123,0.25),
+    0 0 24px rgba(60,138,123,0.18);
 }
 
 /* Side buttons (decorative) */
